@@ -1,0 +1,9 @@
+Referência Científica:
+
+https://arxiv.org/pdf/2005.11401
+
+Fonte do dataset:
+
+foram retiradas 10 mil receitas desse dataset, está em receitas.json
+
+https://github.com/glorf/recipenlg
