@@ -4,6 +4,10 @@ https://arxiv.org/pdf/2005.11401
 
 Fonte do dataset:
 
-foram retiradas 10 mil receitas desse dataset, está em receitas.json
-
+foram retiradas aproximadamente 2 milhões de receitas desse dataset
 https://github.com/glorf/recipenlg
+
+e depois, à partir do split_recipenlg.py, foram pegas 10 mil receitas deste.
+
+Um mirror para baixar é:
+https://huggingface.co/datasets/Mahimas/recipenlg/resolve/main/RecipeNLG.csv

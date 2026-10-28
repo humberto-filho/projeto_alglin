@@ -1,8 +1,8 @@
 import json
-import sys
 import numpy as np
 from sentence_transformers import SentenceTransformer
 
+MODELO = SentenceTransformer("all-MiniLM-L6-v2")
 
 def cos_sim(a, b):  
     a_norm = np.linalg.norm(a)
@@ -28,13 +28,13 @@ def texto_para_busca(receita):
 
 def gerar_embeddings(receitas):
     textos = [texto_para_busca(r) for r in receitas]
-    modelo = SentenceTransformer("all-MiniLM-L6-v2")
+    modelo = MODELO
 
     embeddings = modelo.encode(textos)
     return embeddings
 
 def buscar(query, embeddings, receitas, top_k=5):
-    modelo = SentenceTransformer("all-MiniLM-L6-v2")
+    modelo = MODELO
     query_embedding = modelo.encode([query])
 
     similaridades = cos_sim(query_embedding, embeddings)
@@ -48,10 +48,10 @@ def buscar(query, embeddings, receitas, top_k=5):
     return resultados
 
 def main():
-    query = " ".join(sys.argv[1:])
+    query = input("Qual receita você quer procurar? (inglês)")
 
     print("Carregando o modelo de criar embeddings:")
-    modelo = SentenceTransformer("all-MiniLM-L6-v2")
+    modelo = MODELO
 
     receitas = carregar_receitas("receitas.json")
     embeddings = gerar_embeddings(receitas)
